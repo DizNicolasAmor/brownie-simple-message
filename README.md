@@ -4,15 +4,9 @@ This is a dApp built with brownie. The user can get a message from the blockchai
 
 ## Requirements:
 
-- brownie
-- yarn
-- ganache-cli
-
-## Docs:
-
-- https://github.com/eth-brownie/brownie
-- https://classic.yarnpkg.com/en/
-- https://www.npmjs.com/package/ganache-cli
+- brownie: https://github.com/eth-brownie/brownie
+- yarn: https://classic.yarnpkg.com/en/
+- ganache-cli: https://www.npmjs.com/package/ganache-cli
 
 ## Setup
 
@@ -20,4 +14,20 @@ This is a dApp built with brownie. The user can get a message from the blockchai
    $ brownie compile
 
    $ brownie run scripts/deploy_hello_world.py
+```
+
+## How to run tests
+
+```
+# run all tests:
+$ brownie test
+
+# run only one test, for example test_updating_message:
+$ brownie test -k test_updating_message
+
+# run post mortem tests to debug error:
+$ brownie test -pdb
+
+# run all tests and show more detailed info:
+$ brownie test -s
 ```
