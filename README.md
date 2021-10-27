@@ -13,10 +13,12 @@ This is a dApp built with brownie. The user can get a message from the blockchai
 ```
    $ brownie compile
 
-   $ brownie run scripts/deploy_hello_world.py
+   $ brownie run scripts/deploy.py
 ```
 
-## How to run tests
+## Tests
+
+### How to test locally
 
 ```
 # run all tests:
@@ -31,3 +33,18 @@ $ brownie test -pdb
 # run all tests and show more detailed info:
 $ brownie test -s
 ```
+
+### How to deploy to a testnet
+
+1. Create an account, for example using MetaMask.
+1. Switch into a testnet.
+1. Fund your account, for example using a Faucet.
+1. Signup in Infura (https://infura.io/) and create a project. Call it "brownie-simple-message".
+1. Inside that project, select the testnet.
+1. Save the PROJECT_ID and the ENDPOINTS values in the .env file
+
+Documentation example: https://chain.link/bootcamp/brownie-setup-instructions
+
+In **brownie**, you can select the network using the `--network` flag and the network name, for example `kovan`:
+
+`brownie run scripts/deploy.py --network kovan`
