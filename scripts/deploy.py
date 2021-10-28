@@ -1,13 +1,13 @@
-from brownie import accounts, config, SimpleMessage
+from brownie import accounts, config, SimpleMessage, network
 
 def main():
-    # How to import accounts
-    # option 1: take it from env variables
-    # acount = accounts.add(os.getenv("PRIVATE_KEY"))
+    account = get_account()
+    initial_message = 'Hello world!'
+    simple_message = SimpleMessage.deploy(initial_message, { "from": account })
 
-    # option 2: take it from variables from brownie-config.yaml
-    # acount = accounts.add(config["wallets"]["from_key"])
+def get_account():
+    if network.show_active() == 'development':
+        return accounts[0]
+    else:
+        return accounts.add(config["wallets"]["from_key"])
 
-    # option 3: use native accounts from brownie
-    account = accounts[0]
-    simple_message = SimpleMessage.deploy({ "from": account })

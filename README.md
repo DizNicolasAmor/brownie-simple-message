@@ -41,10 +41,12 @@ $ brownie test -s
 1. Fund your account, for example using a Faucet.
 1. Signup in Infura (https://infura.io/) and create a project. Call it "brownie-simple-message".
 1. Inside that project, select the testnet.
-1. Save the PROJECT_ID and the ENDPOINTS values in the .env file
+1. Save the WEB3_INFURA_PROJECT_ID and the ENDPOINTS values in the .env file
 
 Documentation example: https://chain.link/bootcamp/brownie-setup-instructions
 
 In **brownie**, you can select the network using the `--network` flag and the network name, for example `kovan`:
 
 `brownie run scripts/deploy.py --network kovan`
+
+Then, you will see the transaction hash and the contract. You can also inspect in etherscan.
