@@ -36,17 +36,26 @@ $ brownie test -s
 
 ### How to deploy to a testnet
 
+#### Option 1: without verification
+
+Documentation example of the first steps: https://chain.link/bootcamp/brownie-setup-instructions
+
 1. Create an account, for example using MetaMask.
 1. Switch into a testnet.
 1. Fund your account, for example using a Faucet.
 1. Signup in Infura (https://infura.io/) and create a project. Call it "brownie-simple-message".
 1. Inside that project, select the testnet.
-1. Save the WEB3_INFURA_PROJECT_ID and the ENDPOINTS values in the .env file
+1. Save the `WEB3_INFURA_PROJECT_ID` value in the `.env` file
+1. In **brownie**, you can select the network using the `--network` flag and the network name, for example `kovan`:
 
-Documentation example: https://chain.link/bootcamp/brownie-setup-instructions
-
-In **brownie**, you can select the network using the `--network` flag and the network name, for example `kovan`:
-
-`brownie run scripts/deploy.py --network kovan`
+   `brownie run scripts/deploy.py --network kovan`
 
 Then, you will see the transaction hash and the contract. You can also inspect in etherscan.
+
+#### Option 2: with verification
+
+In this option you can publish the source code in etherscan and a checkmark will appear in etherscan as a sign of verification.
+
+1. Signup in Etherscan (https://etherscan.io/), login and go to API-KEYs section. Then create an API-KEY. You have to set a name, for example "verify_brownie".
+1. Once you have the API-KEY, copy and paste it in the `.env` file as the `ETHERSCAN_TOKEN` value.
+1. In `deploy.py` file, inside the `deploy` method, pass `publish_source=True` as the last parameter.
